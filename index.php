@@ -30,19 +30,22 @@
 
             <section id="content mt-5">
 
-            <?php   if ( have_posts() ) :
-                        while ( have_posts() ) : the_post(); ?>
+            <?php   if ( have_posts() ) : ?>
+            <?php       while ( have_posts() ) : the_post(); ?>
 
                         <div class="card mt-3">
-                            <h3><?php the_title(); ?></h3>
-                            <small><?php the_author(); ?> - Rédigé le <?php the_date()?> à <?php the_time(); ?></small>
+                            <h3>
+
+                                <?php the_shortlink( get_the_title() ); ?>
+
+                                (<?php the_category(   get_the_title()   ); ?>)
+                            </h3>
+                            <small><?php the_author(); ?> - Rédigé le <?php the_date(); ?> à <?php the_time(); ?></small>
                             <p><?php the_excerpt(); ?></p>
                         </div>
 
-            <?php       endwhile;
-                    endif; ?>
-
-                
+            <?php      endwhile; ?>
+            <?php endif; ?>
 
             </section>
 
