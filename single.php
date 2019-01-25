@@ -14,8 +14,16 @@
                         (<?php the_category(   get_the_title()   ); ?>)
                     </h3>
                     <small><?php the_author(); ?> - Rédigé le <?php the_date(); ?> à <?php the_time(); ?></small>
-                    <p><?php the_excerpt(); ?></p>
+                    <p><?php the_content(); ?></p>
 
+                    <div class="card-footer">
+                        <?php previous_post_link(); ?>
+
+                        <div class="float-right">
+                            <?php next_post_link(); ?>
+                        </div>
+
+                    </div>
                 </div>
 
     <?php      endwhile; ?>
